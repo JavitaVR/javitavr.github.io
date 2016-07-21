@@ -18,14 +18,14 @@ function setup() {
   //crea el lienzo
   createCanvas(400, 300);
   //background da el color
-  background(0, 255, 0);
+  background(200, 100, 0);
 }
 //funcion draw() se ejecuta despues de setup
 //y se ejecuta 60 veces por segundo
 function draw() {
-  
+
   var anchoBorde = 10;
-  
+
   //ellipse(posicion X, pos Y, width ancho, heigt altura);
   //ellipse dibuja una elipse
   //noFill();
@@ -33,33 +33,54 @@ function draw() {
   //definamos el tamaño del borde
   //strokeWeigh permite una cant de px
   //srtoke(red, gree, blue)
+  
+  estilo1();
 
-  ellipse(mouseX, mouseY, diametro, diametro);
+  quad(mouseX, mouseY, diametro, diametro);
   
-  ellipse(100, 100, 30, 30);
-  
- diametro = diametro + 1;
+  estilo2();
+
+  rect(30, 20, 55, 55, 20);
+
+  diametro = diametro + 1;
 }
 //declaracion de funcion de estilo elipse
-function estilo1(){
+function estilo1() {
 
-strokeWeight(10);
-  
-  //color del borde
-  stroke(220, 0 , 100);
-  //fill() elige el color del relleno
-  //fill(res, green, blue)
+  strokeWeight(5);
+  stroke(255, 0, 100);
   fill(255, 200, 0);
-  }
   
-  function estilo2(){
-
-strokeWeight(5);
   
   //color del borde
-  stroke(210, 0 , 100);
-  
+
   //fill() elige el color del relleno
   //fill(res, green, blue)
+
+}
+
+function estilo2() {
+
+  strokeWeight(5);
+  stroke(210, 0, 100);
   fill(255, 222, 0);
-  }
+  
+  curve(5, 26, 5, 26, 73, 24, 73, 61);
+curve(5, 26, 73, 24, 73, 61, 15, 65);
+fill(255);
+ellipseMode(CENTER);
+steps = 10;
+for (i = 0; i <= steps; i++) {
+  t = i / steps;
+  x = curvePoint(5, 5, 73, 73, t);
+  y = curvePoint(26, 26, 24, 61, t);
+  ellipse(x, y, 5, 5);
+  x = curvePoint(5, 73, 73, 15, t);
+  y = curvePoint(26, 24, 61, 65, t);
+  ellipse(x, y, 5, 5);
+}
+  //color del borde
+  //fill() elige el color del relleno
+  //fill(res, green, blue)
+
+}
